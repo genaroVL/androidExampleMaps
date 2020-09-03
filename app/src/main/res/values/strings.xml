@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">testAplication</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hint_text_textinput_country">País</string>
+    <string name="hint_text_textinput_code">Codigo Postal</string>
+    <string name="hint_text_textinput_entity">Entidad</string>
+    <string name="hint_text_textinput_city">Ciudad</string>
+    <string name="hint_text_textinput_municipality">Alcaldia o municipio</string>
+    <string name="hint_text_textinput_suburb">Colonia</string>
+    <string name="hint_text_textinput_country_default">Mexíco</string>
+    <string name="common_message_error_request">Lo sentimon, la peticion no ha podido realizarse</string>
+    <string name="common_default_country">MEXICO</string>
+
+</resources>

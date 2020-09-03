@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_code"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:textColorHint="@color/editext_color_link"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:counterEnabled="true"
+        app:counterMaxLength="@integer/max_lenght_textinput_code"
+
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_codeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textinput_text_size"
+            android:hint="@string/hint_text_textinput_code" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_country"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="@dimen/min_width_textinputlayout"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:textColorHint="@color/editext_color_link"
+        app:layout_constraintStart_toEndOf="@+id/guideline1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_countryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textinput_text_size"
+            android:text="@string/hint_text_textinput_country_default"
+            android:hint="@string/hint_text_textinput_country" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_entity"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:textColorHint="@color/editext_color_link"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/textinput_code">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_entityText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textinput_text_size"
+            android:hint="@string/hint_text_textinput_entity" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_city"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:textColorHint="@color/editext_color_link"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:layout_constraintStart_toEndOf="@+id/guideline1"
+        app:layout_constraintBottom_toBottomOf="@+id/textinput_entity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_cityText"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/textinput_text_size"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_text_textinput_city" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_municipality"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/textinput_entity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_municipalityText"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/textinput_text_size"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_text_textinput_municipality" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_suburb"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:boxStrokeColor="@color/editext_box_strokes_color"
+        android:textColorHint="@color/editext_color_link"
+        android:layout_marginRight="@dimen/margin_editext_right"
+        app:layout_goneMarginLeft="@dimen/margin_editext_left"
+        android:layout_marginTop="@dimen/margin_editext_top"
+        android:minWidth="@dimen/min_width_textinputlayout"
+        app:layout_constraintStart_toEndOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/textinput_city">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinput_coloniaText"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/textinput_text_size"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_text_textinput_suburb" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <fragment xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="@dimen/margin_map"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_max_map"
+
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textinput_suburb"
+        tools:context=".MapsActivity" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="370dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout >
+

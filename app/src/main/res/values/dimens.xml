@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_editext">15dp</dimen>
+    <dimen name="margin_editext_right">10dp</dimen>
+    <dimen name="margin_editext_left">10dp</dimen>
+    <dimen name="margin_editext_top">10dp</dimen>
+    <dimen name="margin_editext_bottom">5dp</dimen>
+    <dimen name="margin_bottom_editext">15dp</dimen>
+    <dimen name="margin_map">10dp</dimen>
+    <dimen name="height_max_map">350dp</dimen>
+    <dimen name="min_width_textinputlayout">165dp</dimen>
+
+    <dimen name="textinput_text_size">13sp</dimen>
+    <dimen name="max_width_textinputlayout">165dp</dimen>
+    <dimen name="margin_right_textinput">15dp</dimen>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#E87D7E7E</color>
+    <color name="editext_box_strokes_color" tools:override="true" >#1E88E5</color>
+    <color name="editext_color_link" tools:override="true" >#C0BFBF</color>
+    <color name="color_background_map" tools:override="true" >#00897B</color>
+
+</resources>

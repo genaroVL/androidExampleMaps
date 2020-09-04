@@ -5,7 +5,10 @@ public class Municipality {
         private String key;
         private String name;
 
-        public String getKey() {
+    public Municipality() {
+    }
+
+    public String getKey() {
             return key;
         }
 

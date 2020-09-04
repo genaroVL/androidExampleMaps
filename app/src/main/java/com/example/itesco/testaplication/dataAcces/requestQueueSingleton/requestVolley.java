@@ -2,15 +2,18 @@ package com.example.itesco.testaplication.dataAcces.requestQueueSingleton;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.view.View;
-import android.widget.ProgressBar;
+
+
 import android.widget.Toast;
 
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import com.example.itesco.testaplication.MapsActivity;
+import com.example.itesco.testaplication.MapsView;
 import com.example.itesco.testaplication.R;
+import com.example.itesco.testaplication.model.adressPojo.DataAdress;
 import com.example.itesco.testaplication.model.adressPojo.Federal_entity;
 import com.example.itesco.testaplication.model.adressPojo.Municipality;
 import com.example.itesco.testaplication.model.adressPojo.SettlementType;
@@ -38,14 +41,18 @@ public class requestVolley {
     private CenterPolygon centerPolygon;
     private Polygon polygon=null;
 
-    public requestVolley(Context context) {
+
+    private MapsView mView;
+
+
+    public requestVolley(Context context,MapsView mView) {
         this.context=context;
+        this.mView=mView;
     }
 
 
     public void  requestPoLygon(GoogleMap mMap){
       cordenate=new ArrayList<>();
-        ProgressBar progressBar=new ProgressBar(context);
 
 
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null, response -> {
@@ -74,20 +81,22 @@ public class requestVolley {
                 CameraUpdate miubicacion = CameraUpdateFactory.newLatLngZoom(cordenate.get(0), 15);
                 mMap.moveCamera(miubicacion);
 
+                mView.hideProgress();
 
             } catch (JSONException e) {
                 e.printStackTrace();
+                mView.showError();
 
             }
         }, error -> {
-            Toast.makeText(context,"Ha ocurrido un error",Toast.LENGTH_LONG).show();
+           mView.showError();
         });
 
         InstanceRequestQue.getInstance().setContext(context);
         InstanceRequestQue.getInstance().addToRequestQueue(request);
     }
 
-    public void  requestAdress(String url, TextInputEditText code, TextInputEditText country, TextInputEditText entity, TextInputEditText city, TextInputEditText municipalityEt, TextInputEditText colonia){
+    public void  requestAdress(String url){
       this.url=url;
 
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null, response -> {
@@ -95,41 +104,28 @@ public class requestVolley {
                 JSONObject jsonFederalEntity=response.getJSONObject("federal_entity");
                 JSONObject jsonMunicipality=response.getJSONObject("municipality");
                 JSONArray jsonArraySettlements=response.getJSONArray("settlements");
-                String codeString=response.getString("zip_code");
-
                 JSONObject jsonObjectSettlements=jsonArraySettlements.getJSONObject(0);
                 JSONObject jsonObjectSettlementsType=jsonObjectSettlements.getJSONObject("settlement_type");
 
-                Municipality municipality=new Municipality();
-                Federal_entity federal_entity=new Federal_entity();
-                Settlements settlements=new Settlements();
-                SettlementType settlementType=new SettlementType();
+                DataAdress dataAdress=new DataAdress();
 
-                federal_entity.setCode(jsonFederalEntity.getString("code"));
-                federal_entity.setName(jsonFederalEntity.getString("name"));
+                dataAdress.getFederal_entity().setCode(jsonFederalEntity.getString("code"));
+                dataAdress.getFederal_entity().setName(jsonFederalEntity.getString("name"));
 
-                municipality.setName(jsonMunicipality.getString("name"));
-                municipality.setKey(jsonMunicipality.getString("key"));
+                dataAdress.getMunicipality().setName(jsonMunicipality.getString("name"));
+                dataAdress.getMunicipality().setKey(jsonMunicipality.getString("key"));
 
-                settlements.setName(jsonObjectSettlements.getString("name"));
-                settlements.setZonaType(jsonObjectSettlements.getString("zone_type"));
+                dataAdress.getSettlements().getSettlementType().setName(jsonObjectSettlementsType.getString("name"));
+                dataAdress.setCode(response.getString("zip_code"));
 
-
-                settlementType.setName(jsonObjectSettlementsType.getString("name"));
-
-                city.setText(federal_entity.getCode());
-                code.setText(codeString);
-                entity.setText(federal_entity.getName());
-                country.setText(R.string.common_default_country);
-                municipalityEt.setText(settlementType.getName());
-                colonia.setText(municipality.getName());
-
+                mView.showData(dataAdress);
             } catch (JSONException e) {
                 e.printStackTrace();
+                mView.showError();
 
             }
         }, error -> {
-            Toast.makeText(context,"Ha ocurrido un error",Toast.LENGTH_LONG).show();
+           mView.showError();
         });
 
         InstanceRequestQue.getInstance().setContext(context);

@@ -4,7 +4,19 @@ public class Settlements {
        String name;
         String zonaType;
 
+    public SettlementType getSettlementType() {
+        return settlementType;
+    }
 
+    public void setSettlementType(SettlementType settlementType) {
+        this.settlementType = settlementType;
+    }
+
+    SettlementType settlementType;
+
+    public Settlements() {
+        settlementType=new SettlementType();
+    }
 
     public String getName() {
         return name;

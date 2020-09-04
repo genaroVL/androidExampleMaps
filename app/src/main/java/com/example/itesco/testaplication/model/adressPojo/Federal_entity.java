@@ -6,9 +6,10 @@ public class Federal_entity {
         private String name;
         private String code;
 
+    public Federal_entity() {
+    }
 
-
-        public String getKey() {
+    public String getKey() {
             return key;
         }
 
